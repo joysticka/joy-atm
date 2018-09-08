@@ -4,10 +4,10 @@ from uuid import uuid4
 # Create your models here.
 
 ACCOUNT_TYPE = (
-	('c','Cheques'),
-	('n','Nomina'),
-	('a','Ahorro'),
-	('i','Inversion'),
+	('Cheques','Cheques'),
+	('Nomina','Nomina'),
+	('Ahorro','Ahorro'),
+	('Inversion','Inversion'),
 	)
 
 class Account(models.Model):
