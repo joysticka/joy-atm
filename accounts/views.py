@@ -40,7 +40,8 @@ class WithdrawAction(RedirectView):
 		account_number= self.request.POST['account_number']
 		qty = int(self.request.POST.get('qty'))
 
-		account = Account.objects.get(id=uuid.UUID(account_number))
+		#SELECT * FROM Account WHERE id = account_number;
+		account = Account.objects.get(id=account_number)
 
 		if account.balance >= qty:
 			total = qty
@@ -68,7 +69,7 @@ class WithdrawAction(RedirectView):
 			account.balance -= total
 			account.save()
 			money = '1000: {}, 500: {}, 100: {}, 50: {}'.format(m_1000, m_500, m_100, m_50)
-			redirect(reverse('accounts:main'))
+			return redirect(reverse('accounts:main', kwargs={}))
 		else:
 			money = 'You poor hahahaha'
-			redirect(reverse('accounts:main'))
+			return redirect(reverse('accounts:main', kwargs={}))
