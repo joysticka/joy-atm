@@ -1,1 +1,1 @@
-web: gunicorn joy-atm.wsgi
+web: gunicorn atm1.wsgi
